@@ -43,12 +43,24 @@ def translate_directory(
 def run_translator() -> None:
 
     argparser = argparse.ArgumentParser()
-    argparser.add_argument("--input", type=str, help="Path input file or directory for translation")
-    argparser.add_argument("--type", type=str, choices=["plain", "srt", "dir"], help="The type of input for translation")
     argparser.add_argument(
-        "--target_language", type=str, choices=["Romanian", "Dutch", "German"], help="The language in which we are translating"
+        "--input", type=str, help="Path input file or directory for translation"
     )
-    argparser.add_argument("--output", type=str, help="Path to output file or directory for translation")
+    argparser.add_argument(
+        "--type",
+        type=str,
+        choices=["plain", "srt", "dir"],
+        help="The type of input for translation",
+    )
+    argparser.add_argument(
+        "--target_language",
+        type=str,
+        choices=["Romanian", "Dutch", "German"],
+        help="The language in which we are translating",
+    )
+    argparser.add_argument(
+        "--output", type=str, help="Path to output file or directory for translation"
+    )
     args = argparser.parse_args()
 
     input, output, translation_type, target_language = (
